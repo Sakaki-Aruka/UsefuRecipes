@@ -1,0 +1,5 @@
+name: LatestRecipes
+version: '0.1'
+main: online.aruka.latestRecipes.LatestRecipes
+api-version: '1.21'
+depend: ["Custom_Crafter", "MCKotlin-Paper"]
