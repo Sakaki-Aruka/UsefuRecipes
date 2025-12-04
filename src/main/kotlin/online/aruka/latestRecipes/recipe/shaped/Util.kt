@@ -12,9 +12,11 @@ import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.ExperienceOrb
 import org.bukkit.inventory.ItemStack
+import kotlin.collections.component1
+import kotlin.collections.component2
 
-object Farmer {
-    private fun supplier(
+object Util {
+    fun tradeSupplier(
         targetMaterial: Material,
         tradeRate: Int,
         expRate: Int
@@ -62,7 +64,7 @@ object Farmer {
         }
     }
 
-    private fun recipe(
+    fun tradeRecipe(
         material: Material,
         tradeRate: Int,
         expRate: Int
@@ -91,17 +93,10 @@ object Farmer {
         )
 
         return GroupRecipe(
-            name = "Farmer trading (${material.name})",
+            name = "trading (${material.name})",
             items = items,
             groups = groups,
-            results = listOf(supplier(material, tradeRate, expRate))
+            results = listOf(tradeSupplier(material, tradeRate, expRate))
         )
     }
-
-    val WHEAT: CRecipe = recipe(Material.WHEAT, 20, 2)
-    val POTATO: CRecipe = recipe(Material.POTATO, 26, 2)
-    val CARROT: CRecipe = recipe(Material.CARROT, 22, 2)
-    val BEETROOT: CRecipe = recipe(Material.BEETROOT, 15, 2)
-    val PUMPKIN: CRecipe = recipe(Material.PUMPKIN, 6, 10)
-    val WATERMELON: CRecipe = recipe(Material.MELON, 4, 20)
 }
